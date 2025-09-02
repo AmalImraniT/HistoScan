@@ -1,0 +1,55 @@
+server:
+  port: 8000
+  address: 0.0.0.0
+
+spring:
+  application:
+    name: tissue-captioner-api
+  
+  datasource:
+    url: jdbc:postgresql://localhost:5432/tissue_db
+    username: postgres
+    password: amal1234
+    driver-class-name: org.postgresql.Driver
+  
+  jpa:
+    hibernate:
+      ddl-auto: create # Recréer les tables à chaque démarrage pour le développement
+    show-sql: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: true
+        # Initialisation automatique avec data.sql
+        hbm2ddl:
+          auto: create-drop
+  
+  # Configuration SQL pour initialisation automatique
+  sql:
+    init:
+      mode: always
+      data-locations: classpath:data.sql
+      continue-on-error: true
+  
+  servlet:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 10MB
+
+# Configuration CORS
+cors:
+  # autoriser mon front en LAN + local
+  origins: http://192.168.11.123:8080, http://localhost:5173
+
+# Configuration JWT
+jwt:
+  secret: dGVzdC1zZWNyZXQta2V5LWZvci1kZXZlbG9wbWVudC1jaGFuZ2UtaW4tcHJvZHVjdGlvbg==
+  expiration: 86400000 # 24 heures
+
+# Configuration ML Service
+ml-service:
+  url: http://localhost:8001
+
+# Configuration upload
+upload:
+  path: ./uploads/
