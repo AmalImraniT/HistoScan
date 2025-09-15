@@ -285,3 +285,8 @@ const newUser = await fetch('/api/admin/users', {
 
 **🎉 Status** : **BACKEND ADMIN 100% COMPLÉTÉ** - Toutes les API nécessaires sont implémentées et prêtes à être utilisées par le frontend ! 🚀
 
+
+
+
+
+

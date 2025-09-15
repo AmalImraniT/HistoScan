@@ -14,7 +14,7 @@ spring:
   
   jpa:
     hibernate:
-      ddl-auto: create # Recréer les tables à chaque démarrage pour le développement
+      ddl-auto: update # Recréer les tables à chaque démarrage pour le développement
     show-sql: true
     properties:
       hibernate:
@@ -22,7 +22,7 @@ spring:
         format_sql: true
         # Initialisation automatique avec data.sql
         hbm2ddl:
-          auto: create-drop
+          auto: update
   
   # Configuration SQL pour initialisation automatique
   sql:
@@ -53,3 +53,9 @@ ml-service:
 # Configuration upload
 upload:
   path: ./uploads/
+
+# Configuration AI Assistant (Gemini)
+ai:
+  gemini:
+    api-key: ${AI_GEMINI_API_KEY:AIzaSyDgkBZPMe_j4glfkSACEOpKASb54sXRiMQ}
+    base-url: https://generativelanguage.googleapis.com

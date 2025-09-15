@@ -53,3 +53,9 @@ ml-service:
 # Configuration upload
 upload:
   path: ./uploads/
+
+# Configuration AI Assistant (Gemini)
+ai:
+  gemini:
+    api-key: ${AI_GEMINI_API_KEY:AIzaSyDgkBZPMe_j4glfkSACEOpKASb54sXRiMQ}
+    base-url: https://generativelanguage.googleapis.com

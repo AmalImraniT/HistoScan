@@ -26,6 +26,9 @@ public class AdminOrganService {
     public Organ createOrgan(Organ organ) {
         organ.setCreatedAt(LocalDateTime.now());
         organ.setLastModified(LocalDateTime.now());
+        if (organ.getStorageLocation() == null) {
+            organ.setStorageLocation(Organ.StorageLocation.LOCAL);
+        }
         return organRepository.save(organ);
     }
     
@@ -55,6 +58,12 @@ public class AdminOrganService {
         
         if (organDetails.getPriority() != null) {
             organ.setPriority(organDetails.getPriority());
+        }
+        if (organDetails.getStoragePath() != null) {
+            organ.setStoragePath(organDetails.getStoragePath());
+        }
+        if (organDetails.getStorageLocation() != null) {
+            organ.setStorageLocation(organDetails.getStorageLocation());
         }
         
         organ.setLastModified(LocalDateTime.now());

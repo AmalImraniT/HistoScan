@@ -32,6 +32,13 @@ public class Organ {
     @Enumerated(EnumType.STRING)
     private Priority priority;
     
+    // Nouveau: chemin d'enregistrement et emplacement (LOCAL/DRIVE)
+    @Size(max = 255)
+    private String storagePath;
+
+    @Enumerated(EnumType.STRING)
+    private StorageLocation storageLocation;
+
     private LocalDateTime lastModified;
     
     private LocalDateTime createdAt;
@@ -42,6 +49,10 @@ public class Organ {
     
     public enum Priority {
         LOW, MEDIUM, HIGH
+    }
+
+    public enum StorageLocation {
+        LOCAL, DRIVE
     }
     
     // Constructeurs
@@ -114,6 +125,22 @@ public class Organ {
     
     public void setPriority(Priority priority) {
         this.priority = priority;
+    }
+
+    public String getStoragePath() {
+        return storagePath;
+    }
+
+    public void setStoragePath(String storagePath) {
+        this.storagePath = storagePath;
+    }
+
+    public StorageLocation getStorageLocation() {
+        return storageLocation;
+    }
+
+    public void setStorageLocation(StorageLocation storageLocation) {
+        this.storageLocation = storageLocation;
     }
     
     public LocalDateTime getLastModified() {

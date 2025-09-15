@@ -38,7 +38,9 @@ public class SecurityConfig {
         .requestMatchers(HttpMethod.OPTIONS, "/**").permitAll()          // préflight
         .requestMatchers("/api/public/**").permitAll()
         .requestMatchers("/api/auth/**").permitAll()                     // login/register
-        .requestMatchers("/api/test/**").permitAll()                     // endpoints de test (dev uniquement)
+        .requestMatchers("/api/ai/**").permitAll()                       // AI Assistant
+        .requestMatchers("/api/test/**").permitAll()
+        .requestMatchers("/api/test/analysis/**").permitAll()                     // endpoints de test (dev uniquement)
         .requestMatchers("/v3/api-docs/**", "/swagger-ui/**").permitAll()
         .anyRequest().authenticated()
       )
